@@ -1,0 +1,35 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">New track</h1>
+
+  <div class="my-8 w-1/2 p-6 bg-purple-200 rounded-xl shadow-md border-t-2">
+    <h1 class="text-3xl font-bold" >Tailwind CSS</h1>
+    <p class="font-normal text-lg text-gray-800">
+        A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+    </p>
+  </div>
+
+  <%= render "form", track: @track %>
+
+  <%= link_to 'Back to tracks', tracks_path, id: "back", class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium active:bg-green-300 xl:bg-yellow-200 dark:bg-gray-400" %>
+
+</div>
+
+<script>
+  var button = document.getElementById("back");
+
+  button.addEventListener('mouseover', changeDefOver);
+  button.addEventListener('mouseout', changeDefOut);
+
+  function changeDefOver(e) {
+    console.log("button moused over");
+    if ((Math.random()*100) < 40) {
+      button.className = "ml-2 rounded-lg py-3 px-5 inline-block font-medium disabled";
+      console.log("button disabled")
+    }
+  }
+
+  function changeDefOut(e) {
+    console.log("button moused away");
+    button.className = "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium active:bg-green-300 xl:bg-yellow-200 dark:bg-gray-400";
+  }
+</script>
